@@ -1,0 +1,8 @@
+@use 'bootstrap';
+@use '@fortawesome/fontawesome-free/css/all.min.css';
+
+@use './partials/home';
+@use './partials/navbar';
+@use './partials/footer';
+
+@use './partials/variables' as *;
