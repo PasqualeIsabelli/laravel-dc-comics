@@ -1,1 +1,18 @@
 @use './variables' as *;
+
+.main-navbar {
+  padding: 1rem 0;
+}
+
+.logo {
+  width: 50px;
+}
+
+.navbar-links {
+  color: black;
+  
+  &:hover {
+    color: $bluebar-background;
+  }
+}
+

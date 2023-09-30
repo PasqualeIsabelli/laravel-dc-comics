@@ -1,1 +1,33 @@
 @use './variables' as *;
+
+.bg-footer {
+  background-image: url(../../../public/images/footer-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  .ul-container {
+    padding: 30px 25px;
+
+    .nav-link {
+      color: $text-color;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .dc-bg {
+    width: 600px;
+    background-image: url(../../../public/images/dc-logo-bg.png);
+    background-repeat: no-repeat;
+    background-position: 0px;
+  }
+}
+
+.bg-color {
+  background-color: $footer-background;
+  height: 100px;
+  
+  .width {
+    width: 30px;
+  }
+}

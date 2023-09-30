@@ -4,5 +4,8 @@
 @use './partials/home';
 @use './partials/navbar';
 @use './partials/footer';
+@use './partials/bluebar';
+@use './partials/jumbo';
+@use './partials/iconbar';
 
 @use './partials/variables' as *;

@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 
-@section('title', '...')
+@section('title', 'Laravel DC Comics')
 
 
 @section('content')
