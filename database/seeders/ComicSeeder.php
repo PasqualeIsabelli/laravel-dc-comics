@@ -225,8 +225,21 @@ class ComicSeeder extends Seeder {
   /**
    * Run the database seeds.
    */
-  public function run(): void
-  {
-    //
+  public function run(): void {
+    foreach ($this->comics as $comic) {
+      $singleComic = new Comic();
+
+      $singleComic->title = $comic['title'];
+      $singleComic->description = $comic['description'];
+      $singleComic->thumb = $comic['thumb'];
+      $singleComic->price = str_replace('$', '', $comic['price']);
+      $singleComic->series = $comic['series'];
+      $singleComic->sale_date = $comic['sale_date'];
+      $singleComic->type = $comic['type'];
+      $singleComic->artists = json_encode($comic['artists']);
+      $singleComic->writers = json_encode($comic['writers']);
+
+      $singleComic->save();
+    }
   }
 }
