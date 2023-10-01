@@ -1,0 +1,19 @@
+@use './variables' as *;
+
+.container {
+  position: relative;
+
+  .cs-banner {
+    padding: .3rem 1rem;
+    position: absolute;
+    top: -70px;
+    left: 0;
+  }
+  .card {
+    background-color: transparent !important;
+  
+    img {
+      height: 200px;
+    }
+  }
+}

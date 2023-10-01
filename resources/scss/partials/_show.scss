@@ -1,0 +1,21 @@
+@use './variables' as *;
+
+.blue-show {
+  background-color: $bluebar-background;
+  height: 50px;
+}
+
+.container {
+  position: relative;
+
+  .card {
+    width: 200px;
+    height: 250px;
+    position: relative;
+    top: -220px;
+    left: 0;
+  }
+  .text-desc {
+    margin-top: 0;
+  }
+}
