@@ -11,7 +11,7 @@
       <div class="row row-cols-6">
         @foreach ($dati as $comic)
           <a class="text-decoration-none" href="{{ route('show', $comic->id) }}">
-            <div class="card border-0 mt-5">
+            <div class="card border-0">
               <img src="{{ $comic->thumb }}">
               <div class="card-body text-white fs-5"></div>
               <h5 class="text-white">{{ $comic->title }}</h5>

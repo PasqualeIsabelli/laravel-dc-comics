@@ -14,15 +14,15 @@
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Descrizione:</label>
-        <input type="textarea" class="form-control" placeholder="Inserisci la descrizione del nuovo Comic" name="description">
+        <textarea class="form-control" placeholder="Inserisci la descrizione del nuovo Comic" name="description"></textarea>
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Immagine:</label>
-        <input type="textarea" class="form-control" placeholder="Inserisci l'immagine del nuovo Comic" name="thumb">
+        <input type="text" class="form-control" placeholder="Inserisci l'immagine del nuovo Comic" name="thumb">
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Prezzo:</label>
-        <input type="text" class="form-control" placeholder="Inserisci il prezzo del nuovo Comic" name="price">
+        <input type="number" class="form-control" placeholder="Inserisci il prezzo del nuovo Comic" name="price">
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Serie:</label>
@@ -30,15 +30,15 @@
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Data di vendita:</label>
-        <input type="text" class="form-control" placeholder="Inserisci la data di vendita del nuovo Comic" name="sale_date">
+        <input type="date" class="form-control" name="sale_date">
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Tipologia:</label>
         <select class="form-select" name="type">
           <option hidden>Seleziona la tipologia</option>
-          <option value="">comic book</option>
-          <option value="">graphic novel</option>
-      </select>
+          <option value="comic_book">comic book</option>
+          <option value="graphic_novel">graphic novel</option>
+        </select>
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Artisti:</label>
@@ -49,8 +49,8 @@
         <input type="text" class="form-control" placeholder="Inserisci il nome degli scrittori del nuovo Comic" name="writers">
       </div>
       <div class="mt-4 d-flex justify-content-center gap-3">
-        <button type="button" class="btn btn-primary fs-4 fw-bold rounded-0">SEND</button>
         <button type="button" class="btn btn-primary fs-4 fw-bold rounded-0"><a class="text-decoration-none text-white" href="{{ route('index') }}">CANCEL</a></button>
+        <button class="btn btn-primary fs-4 fw-bold rounded-0">SEND</button>
       </div>
     </form>
   </div>

@@ -24,31 +24,36 @@ class ComicController extends Controller {
 
     public function store(Request $request) {
         $data = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|text',
-            'thumb' => 'required|text',
-            'price' => 'required|decimal|integer',
-            'series' => 'nullable|string|max:100',
-            'sale_date' => 'nullable|date',
-            'type' => ['nullable', Rule::in(['comic book', 'graphic novel'])],
-            'artists' => 'nullable|text',
-            'writers' => 'nullable|text',
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'thumb' => 'required|string',
+            'price' => 'required|integer', //decimal: 4,2
+            'series' => 'required|string',
+            'sale_date' => 'required|date',
+            'type' => ['required', Rule::in(['comic book', 'graphic novel'])],
+            'artists' => 'required|string',
+            'writers' => 'required|string',
         ]);
+
+        $data["artists"] = explode(', ', $data["artists"]);
+        $data["writers"] = explode(', ', $data["writers"]);
 
         $newComic = new Comic();
 
-        $newComic->title = $data['title'];
-        $newComic->description = $data['description'];
-        $newComic->thumb = $data['thumb'];
-        $newComic->price = $data['price'];
-        $newComic->series = $data['series'];
-        $newComic->sale_date = $data['sale_date'];
-        $newComic->type = $data['type'];
-        $newComic->artists = $data['artists'];
-        $newComic->writers = $data['writers'];
+        $newComic->fill($data);
+
+        // $newComic->title = $data['title'];
+        // $newComic->description = $data['description'];
+        // $newComic->thumb = $data['thumb'];
+        // $newComic->price = $data['price'];
+        // $newComic->series = $data['series'];
+        // $newComic->sale_date = $data['sale_date'];
+        // $newComic->type = $data['type'];
+        // $newComic->artists = explode(', ', $data['artists']);
+        // $newComic->writers = explode(', ', $data['writers']);
 
         $newComic->save();
 
-        return redirect()->route('show', $newComic->id);
+        return redirect()->route('index');
     }
 }

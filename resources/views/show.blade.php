@@ -22,11 +22,11 @@
           <tbody>
             <tr>
               <th scope="col">Art by:</th>
-              <td scope="col">{{ join(', ', json_decode($comicShow['artists'])) }}</td>
+              <td scope="col">{{ implode(', ', $comicShow['artists']) }}</td>
             </tr>
             <tr>
               <th scope="row">Written by:</th>
-              <td>{{ join(', ', json_decode($comicShow['writers'])) }}</td>
+              <td>{{ implode(', ', $comicShow['writers']) }}</td>
             </tr>
           </tbody>
         </table>
