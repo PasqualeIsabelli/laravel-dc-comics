@@ -7,7 +7,7 @@
 @section('content')
   <div class="container-fluid blue-show"></div>
   <div class="container">
-    <div class="card border-0 rounded-0">
+    <div class="card border-0 rounded-0 img-card">
       <img src="{{ $comicShow['thumb'] }}">
     </div>
     <div class="text-desc">

@@ -27,7 +27,7 @@ class ComicController extends Controller {
             'title' => 'required|string',
             'description' => 'required|string',
             'thumb' => 'required|string',
-            'price' => 'required|integer', //decimal: 4,2
+            'price' => 'required|integer',
             'series' => 'required|string',
             'sale_date' => 'required|date',
             'type' => ['required', Rule::in(['comic book', 'graphic novel'])],
