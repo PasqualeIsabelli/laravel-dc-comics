@@ -19,8 +19,9 @@
           </a>
         @endforeach
       </div>
-      <div class="text-center mt-4">
-        <button type="button" class="btn btn-primary fs-4 fw-bold rounded-0">LOAD MORE</button>
+      <div class="mt-4 d-flex justify-content-center gap-3">
+        <button type="button" class="btn btn-primary fs-4 fw-bold rounded-0"><a class="text-decoration-none text-white" href="{{ route('create') }}">ADD NEW COMIC</a></button>
+        <button type="button" class="btn btn-primary fs-4 fw-bold rounded-0"><a class="text-decoration-none text-white" href="#0">LOAD MORE</a></button>
       </div>
     </div>
   </div>
