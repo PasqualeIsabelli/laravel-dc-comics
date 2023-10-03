@@ -82,7 +82,7 @@ class ComicController extends Controller {
 
         $data["artists"] = explode(', ', $data["artists"]);
         $data["writers"] = explode(', ', $data["writers"]);
-
+        
         $comic->update($data);
 
         return redirect()->route('show', $comic->id);
@@ -92,7 +92,7 @@ class ComicController extends Controller {
         $comic = Comic::find($id);
         
         $comic->delete();
-
+        
         return redirect()->route('index');
     }
 }
