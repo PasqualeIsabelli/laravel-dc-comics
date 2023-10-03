@@ -22,3 +22,7 @@ Route::post('/comic', [ComicController::class, 'store'])->name('store');
 // READ
 Route::get('/', [ComicController::class, 'index'])->name('index');
 Route::get('/comic/{id}', [ComicController::class, 'show'])->name('show');
+
+// UPDATE
+Route::get('/comic/{id}/edit', [ComicController::class, 'edit'])->name('edit');
+Route::put('/comic/{id}', [ComicController::class, 'update'])->name('update');

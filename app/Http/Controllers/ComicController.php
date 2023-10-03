@@ -15,7 +15,7 @@ class ComicController extends Controller {
 
     public function show($id) {
         $comic = Comic::find($id);
-        return view('show', ['comicShow' => $comic]);
+        return view('show', ['comic' => $comic]);
     }
 
     public function create() {
@@ -23,14 +23,16 @@ class ComicController extends Controller {
     }
 
     public function store(Request $request) {
+        // $data = $request->all();
+
         $data = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
             'thumb' => 'required|string',
-            'price' => 'required|integer',
+            'price' => 'required|decimal:2,4',
             'series' => 'required|string',
             'sale_date' => 'required|date',
-            'type' => ['required', Rule::in(['comic book', 'graphic novel'])],
+            'type' => ['required', Rule::in(['comic_book', 'graphic_novel'])],
             'artists' => 'required|string',
             'writers' => 'required|string',
         ]);
@@ -42,18 +44,47 @@ class ComicController extends Controller {
 
         $newComic->fill($data);
 
-        // $newComic->title = $data['title'];
-        // $newComic->description = $data['description'];
-        // $newComic->thumb = $data['thumb'];
-        // $newComic->price = $data['price'];
-        // $newComic->series = $data['series'];
-        // $newComic->sale_date = $data['sale_date'];
-        // $newComic->type = $data['type'];
-        // $newComic->artists = explode(', ', $data['artists']);
-        // $newComic->writers = explode(', ', $data['writers']);
+        /*$newComic->title = $data['title'];
+        $newComic->description = $data['description'];
+        $newComic->thumb = $data['thumb'];
+        $newComic->price = $data['price'];
+        $newComic->series = $data['series'];
+        $newComic->sale_date = $data['sale_date'];
+        $newComic->type = $data['type'];
+        $newComic->artists = explode(', ', $data['artists']);
+        $newComic->writers = explode(', ', $data['writers']);
+        */
 
         $newComic->save();
 
         return redirect()->route('index');
+    }
+
+    public function edit($id) {
+        $comic = Comic::find($id);
+        return view('edit', ['comic' => $comic]);
+    }
+    
+    public function update(Request $request, $id) {
+        $comic = Comic::find($id);
+
+        $data = $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'thumb' => 'required|string',
+            'price' => 'required|decimal:2,4',
+            'series' => 'required|string',
+            'sale_date' => 'required|date',
+            'type' => ['required', Rule::in(['comic_book', 'graphic_novel'])],
+            'artists' => 'required|string',
+            'writers' => 'required|string',
+        ]);
+
+        $data["artists"] = explode(', ', $data["artists"]);
+        $data["writers"] = explode(', ', $data["writers"]);
+
+        $comic->update($data);
+
+        return redirect()->route('show', $comic->id);
     }
 }

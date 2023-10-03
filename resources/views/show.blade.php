@@ -8,12 +8,15 @@
   <div class="container-fluid blue-show"></div>
   <div class="container">
     <div class="card border-0 rounded-0 img-card">
-      <img src="{{ $comicShow['thumb'] }}">
+      <img src="{{ $comic['thumb'] }}">
     </div>
     <div class="text-desc">
-      <h3 class="fw-bold">{{ $comicShow['title'] }}</h3>
-      <p>U.S. Price: ${{ $comicShow['price'] }}</p>
-      <p>{{ $comicShow['description'] }}</p>
+      <div class="d-flex justify-content-end">
+        <a href="{{ route('edit', $comic->id) }}" class="btn btn-warning">Modifica</a>
+      </div>
+      <h3 class="fw-bold">{{ $comic['title'] }}</h3>
+      <p>U.S. Price: ${{ $comic['price'] }}</p>
+      <p>{{ $comic['description'] }}</p>
     </div>
     <div class="d-flex gap-5 mt-5 pb-5">
       <div class="col-6">
@@ -22,11 +25,11 @@
           <tbody>
             <tr>
               <th scope="col">Art by:</th>
-              <td scope="col">{{ implode(', ', $comicShow['artists']) }}</td>
+              <td scope="col">{{ implode(', ', $comic['artists']) }}</td>
             </tr>
             <tr>
               <th scope="row">Written by:</th>
-              <td>{{ implode(', ', $comicShow['writers']) }}</td>
+              <td>{{ implode(', ', $comic['writers']) }}</td>
             </tr>
           </tbody>
         </table>
@@ -37,15 +40,15 @@
           <tbody>
             <tr>
               <th scope="col">Series:</th>
-              <td scope="col">{{ $comicShow['series'] }}</td>
+              <td scope="col">{{ $comic['series'] }}</td>
             </tr>
             <tr>
               <th scope="row">U.S. Price:</th>
-              <td>${{ $comicShow['price'] }}</td>
+              <td>${{ $comic['price'] }}</td>
             </tr>
             <tr>
               <th scope="row">On Sale Date:</th>
-              <td>{{ $comicShow['sale_date'] }}</td>
+              <td>{{ $comic['sale_date'] }}</td>
             </tr>
           </tbody>
         </table>

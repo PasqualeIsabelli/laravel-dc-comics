@@ -5,8 +5,9 @@
 
 @section ('content')
   <div class="container p-4">
-    <form action="{{ route('store') }}" method="POST">
+    <form action="{{ route('update', $comic->id) }}" method="POST">
       @csrf()
+      @method('PUT')
       <h1 class="mb-4 fw-bold text-center">Inserisci i dati del nuovo Comic</h1>
       <div class="mb-3">
         <label class="form-label fw-bold">Titolo:</label>
