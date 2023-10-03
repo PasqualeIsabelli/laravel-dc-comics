@@ -11,8 +11,13 @@
       <img src="{{ $comic['thumb'] }}">
     </div>
     <div class="text-desc">
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-end gap-3">
         <a href="{{ route('edit', $comic->id) }}" class="btn btn-warning">Modifica</a>
+        <form action="{{ route('destroy', ['id' => $comic->id]) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger">Elimina</button>
+        </form>
       </div>
       <h3 class="fw-bold">{{ $comic['title'] }}</h3>
       <p>U.S. Price: ${{ $comic['price'] }}</p>

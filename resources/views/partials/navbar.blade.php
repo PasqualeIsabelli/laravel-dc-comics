@@ -4,10 +4,10 @@ $navlinks = ['CHARACTERS', 'COMICS', 'MOVIES', 'TV', 'GAMES', 'COLLECTIBLES', 'V
 
 <main class="main-navbar">
   <div class="container d-flex justify-content-between">
-    <img class="logo" src="/images/dc-logo.png">
+    <a href="{{ route('index') }}"><img class="logo" src="/images/dc-logo.png"></a>
     <ul class="nav d-flex align-items-center gap-3">
       @foreach ($navlinks as $link)
-        <li><a href="#0" class="fw-bold gap-3 text-decoration-none navbar-links">{{ $link }}</a></li>
+        <li><a href="{{ route('index') }}" class="fw-bold gap-3 text-decoration-none navbar-links">{{ $link }}</a></li>
       @endforeach
     </ul>
     <div class="d-flex align-items-center">
