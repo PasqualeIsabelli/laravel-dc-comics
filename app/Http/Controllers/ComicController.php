@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateComicRequest;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-
+// use Illuminate\Validation\Rule;
 use App\Models\Comic;
 
 class ComicController extends Controller {
@@ -22,10 +22,12 @@ class ComicController extends Controller {
         return view('create');
     }
 
-    public function store(Request $request) {
+    public function store(UpdateComicRequest $request) {
         // $data = $request->all();
 
-        $data = $request->validate([
+        $data = $request->validated();
+
+        /*$data = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
             'thumb' => 'required|string',
@@ -35,7 +37,7 @@ class ComicController extends Controller {
             'type' => ['required', Rule::in(['comic_book', 'graphic_novel'])],
             'artists' => 'required|string',
             'writers' => 'required|string',
-        ]);
+        ]);*/
 
         $data["artists"] = explode(', ', $data["artists"]);
         $data["writers"] = explode(', ', $data["writers"]);
@@ -65,10 +67,12 @@ class ComicController extends Controller {
         return view('edit', ['comic' => $comic]);
     }
     
-    public function update(Request $request, $id) {
+    public function update(UpdateComicRequest $request, $id) {
         $comic = Comic::find($id);
 
-        $data = $request->validate([
+        $data = $request->validated();
+
+        /*$data = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
             'thumb' => 'required|string',
@@ -78,7 +82,7 @@ class ComicController extends Controller {
             'type' => ['required', Rule::in(['comic_book', 'graphic_novel'])],
             'artists' => 'required|string',
             'writers' => 'required|string',
-        ]);
+        ]);*/
 
         $data["artists"] = explode(', ', $data["artists"]);
         $data["writers"] = explode(', ', $data["writers"]);
